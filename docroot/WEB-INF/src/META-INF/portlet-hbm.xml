@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.services.model.Agency" />
+	<import class="com.services.model.BookingStatus" />
+	<import class="com.services.model.Bus" />
+	<import class="com.services.model.BusEmployee" />
+	<import class="com.services.model.BusReservation" />
+	<import class="com.services.model.BusRoute" />
+	<import class="com.services.model.BusRouteTimings" />
+	<import class="com.services.model.Coupon" />
+	<import class="com.services.model.Location" />
+	<import class="com.services.model.UserCoupon" />
+	<class name="com.services.model.impl.AgencyImpl" table="JPB_Agency">
+		<cache usage="read-write" />
+		<id name="agencyId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="agencyName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="owner" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="contactNumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="active" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="active_" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.services.model.impl.BookingStatusImpl" table="JPB_BookingStatus">
+		<cache usage="read-write" />
+		<id name="bsId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="brtId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="tripStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.services.model.impl.BusImpl" table="JPB_Bus">
+		<cache usage="read-write" />
+		<id name="busId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="busName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="agency" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="driver" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="conductor" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="helper" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="plateNumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="color" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="make" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="model" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="year" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="active" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="active_" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.services.model.impl.BusEmployeeImpl" table="JPB_BusEmployee">
+		<cache usage="read-write" />
+		<id name="beId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="beName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="agency" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="contactNumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="licenseNumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="alternateIdNumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="active" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="active_" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.services.model.impl.BusReservationImpl" table="JPB_BusReservation">
+		<cache usage="read-write" />
+		<id name="brId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="baId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="paymentReceived" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="bookingDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.services.model.impl.BusRouteImpl" table="JPB_BusRoute">
+		<cache usage="read-write" />
+		<id name="brId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="busId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="startLocation" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="endLocation" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="midLocation1" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="midLocation2" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="active" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="active_" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.services.model.impl.BusRouteTimingsImpl" table="JPB_BusRouteTimings">
+		<cache usage="read-write" />
+		<id name="brtId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="brId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="busDetails" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="travelDate" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="travelTime" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="total" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="available" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="price" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="active" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="active_" />
+		<property name="completed" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.services.model.impl.CouponImpl" table="JPB_Coupon">
+		<cache usage="read-write" />
+		<id name="couponId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="couponName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="price" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="validTill" type="org.hibernate.type.TimestampType" />
+		<property name="audience" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.services.model.impl.LocationImpl" table="JPB_Location">
+		<cache usage="read-write" />
+		<id name="locationId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="locationName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="streetAddress1" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="streetAddress2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="locationZip" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="locationCityName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="locationStateName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="latitude" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="longitude" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="comments" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="active" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="active_" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.services.model.impl.UserCouponImpl" table="JPB_UserCoupon">
+		<cache usage="read-write" />
+		<id name="ucId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="couponId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="claimed" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+	</class>
+</hibernate-mapping>

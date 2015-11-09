@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.services.service.AgencyLocalService" class="com.services.service.impl.AgencyLocalServiceImpl" />
+	<bean id="com.services.service.persistence.AgencyPersistence" class="com.services.service.persistence.AgencyPersistenceImpl" parent="basePersistence" />
+	<bean id="com.services.service.BookingStatusLocalService" class="com.services.service.impl.BookingStatusLocalServiceImpl" />
+	<bean id="com.services.service.BookingStatusService" class="com.services.service.impl.BookingStatusServiceImpl" />
+	<bean id="com.services.service.persistence.BookingStatusPersistence" class="com.services.service.persistence.BookingStatusPersistenceImpl" parent="basePersistence" />
+	<bean id="com.services.service.BusLocalService" class="com.services.service.impl.BusLocalServiceImpl" />
+	<bean id="com.services.service.persistence.BusPersistence" class="com.services.service.persistence.BusPersistenceImpl" parent="basePersistence" />
+	<bean id="com.services.service.BusEmployeeLocalService" class="com.services.service.impl.BusEmployeeLocalServiceImpl" />
+	<bean id="com.services.service.persistence.BusEmployeePersistence" class="com.services.service.persistence.BusEmployeePersistenceImpl" parent="basePersistence" />
+	<bean id="com.services.service.BusReservationLocalService" class="com.services.service.impl.BusReservationLocalServiceImpl" />
+	<bean id="com.services.service.persistence.BusReservationPersistence" class="com.services.service.persistence.BusReservationPersistenceImpl" parent="basePersistence" />
+	<bean id="com.services.service.BusRouteLocalService" class="com.services.service.impl.BusRouteLocalServiceImpl" />
+	<bean id="com.services.service.persistence.BusRoutePersistence" class="com.services.service.persistence.BusRoutePersistenceImpl" parent="basePersistence" />
+	<bean id="com.services.service.BusRouteTimingsLocalService" class="com.services.service.impl.BusRouteTimingsLocalServiceImpl" />
+	<bean id="com.services.service.BusRouteTimingsService" class="com.services.service.impl.BusRouteTimingsServiceImpl" />
+	<bean id="com.services.service.persistence.BusRouteTimingsPersistence" class="com.services.service.persistence.BusRouteTimingsPersistenceImpl" parent="basePersistence" />
+	<bean id="com.services.service.CouponLocalService" class="com.services.service.impl.CouponLocalServiceImpl" />
+	<bean id="com.services.service.persistence.CouponPersistence" class="com.services.service.persistence.CouponPersistenceImpl" parent="basePersistence" />
+	<bean id="com.services.service.LocationLocalService" class="com.services.service.impl.LocationLocalServiceImpl" />
+	<bean id="com.services.service.persistence.LocationPersistence" class="com.services.service.persistence.LocationPersistenceImpl" parent="basePersistence" />
+	<bean id="com.services.service.UserCouponLocalService" class="com.services.service.impl.UserCouponLocalServiceImpl" />
+	<bean id="com.services.service.persistence.UserCouponPersistence" class="com.services.service.persistence.UserCouponPersistenceImpl" parent="basePersistence" />
+</beans>

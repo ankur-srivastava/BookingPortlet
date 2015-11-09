@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.services.model.impl.AgencyModelImpl">
+		<attributes>
+			<id name="agencyId" />
+			<basic name="agencyName" />
+			<basic name="owner" />
+			<basic name="contactNumber" />
+			<basic name="email" />
+			<basic name="active">
+				<column name="ACTIVE_" />
+			</basic>
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.services.model.impl.BookingStatusModelImpl">
+		<attributes>
+			<id name="bsId" />
+			<basic name="userId" />
+			<basic name="brtId" />
+			<basic name="status" />
+			<basic name="tripStatus" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.services.model.impl.BusModelImpl">
+		<attributes>
+			<id name="busId" />
+			<basic name="busName" />
+			<basic name="agency" />
+			<basic name="driver" />
+			<basic name="conductor" />
+			<basic name="helper" />
+			<basic name="plateNumber" />
+			<basic name="color" />
+			<basic name="make" />
+			<basic name="model" />
+			<basic name="year" />
+			<basic name="active">
+				<column name="ACTIVE_" />
+			</basic>
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.services.model.impl.BusEmployeeModelImpl">
+		<attributes>
+			<id name="beId" />
+			<basic name="beName" />
+			<basic name="agency" />
+			<basic name="contactNumber" />
+			<basic name="email" />
+			<basic name="licenseNumber" />
+			<basic name="alternateIdNumber" />
+			<basic name="active">
+				<column name="ACTIVE_" />
+			</basic>
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.services.model.impl.BusReservationModelImpl">
+		<attributes>
+			<id name="brId" />
+			<basic name="baId" />
+			<basic name="userId" />
+			<basic name="paymentReceived" />
+			<basic name="bookingDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.services.model.impl.BusRouteModelImpl">
+		<attributes>
+			<id name="brId" />
+			<basic name="busId" />
+			<basic name="startLocation" />
+			<basic name="endLocation" />
+			<basic name="midLocation1" />
+			<basic name="midLocation2" />
+			<basic name="active">
+				<column name="ACTIVE_" />
+			</basic>
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.services.model.impl.BusRouteTimingsModelImpl">
+		<attributes>
+			<id name="brtId" />
+			<basic name="brId" />
+			<basic name="busDetails" />
+			<basic name="travelDate" />
+			<basic name="travelTime" />
+			<basic name="total" />
+			<basic name="available" />
+			<basic name="price" />
+			<basic name="active">
+				<column name="ACTIVE_" />
+			</basic>
+			<basic name="completed" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.services.model.impl.CouponModelImpl">
+		<attributes>
+			<id name="couponId" />
+			<basic name="couponName" />
+			<basic name="price" />
+			<basic name="validTill">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="audience" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.services.model.impl.LocationModelImpl">
+		<attributes>
+			<id name="locationId" />
+			<basic name="locationName" />
+			<basic name="streetAddress1" />
+			<basic name="streetAddress2" />
+			<basic name="locationZip" />
+			<basic name="locationCityName" />
+			<basic name="locationStateName" />
+			<basic name="latitude" />
+			<basic name="longitude" />
+			<basic name="comments" />
+			<basic name="active">
+				<column name="ACTIVE_" />
+			</basic>
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.services.model.impl.UserCouponModelImpl">
+		<attributes>
+			<id name="ucId" />
+			<basic name="userId" />
+			<basic name="couponId" />
+			<basic name="claimed" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.services.model.impl.AgencyImpl" name="Agency">
+		<table name="JPB_Agency" />
+		<attributes />
+	</entity>
+	<entity class="com.services.model.impl.BookingStatusImpl" name="BookingStatus">
+		<table name="JPB_BookingStatus" />
+		<attributes />
+	</entity>
+	<entity class="com.services.model.impl.BusImpl" name="Bus">
+		<table name="JPB_Bus" />
+		<attributes />
+	</entity>
+	<entity class="com.services.model.impl.BusEmployeeImpl" name="BusEmployee">
+		<table name="JPB_BusEmployee" />
+		<attributes />
+	</entity>
+	<entity class="com.services.model.impl.BusReservationImpl" name="BusReservation">
+		<table name="JPB_BusReservation" />
+		<attributes />
+	</entity>
+	<entity class="com.services.model.impl.BusRouteImpl" name="BusRoute">
+		<table name="JPB_BusRoute" />
+		<attributes />
+	</entity>
+	<entity class="com.services.model.impl.BusRouteTimingsImpl" name="BusRouteTimings">
+		<table name="JPB_BusRouteTimings" />
+		<attributes />
+	</entity>
+	<entity class="com.services.model.impl.CouponImpl" name="Coupon">
+		<table name="JPB_Coupon" />
+		<attributes />
+	</entity>
+	<entity class="com.services.model.impl.LocationImpl" name="Location">
+		<table name="JPB_Location" />
+		<attributes />
+	</entity>
+	<entity class="com.services.model.impl.UserCouponImpl" name="UserCoupon">
+		<table name="JPB_UserCoupon" />
+		<attributes />
+	</entity>
+</entity-mappings>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_JPB_BusRouteTimingsService" provider="java:RPC" style="rpc" use="encoded">
+		<arrayMapping xmlns:ns="urn:http.service.services.com" xmlns:cmp-ns="http://model.services.com" qname="ns:ArrayOf_tns2_BusRouteTimingsSoap" type="java:com.services.model.BusRouteTimingsSoap[]" innerType="cmp-ns:BusRouteTimingsSoap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></arrayMapping>
+		<typeMapping xmlns:ns="http://model.services.com" qname="ns:BusRouteTimingsSoap" type="java:com.services.model.BusRouteTimingsSoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+		<operation xmlns:operNS="urn:http.service.services.com" xmlns:rtns="urn:http.service.services.com" xmlns:tns2="http://model.services.com" name="getAvailableBusBasedOnRouteAndDate" qname="operNS:getAvailableBusBasedOnRouteAndDate" returnQName="getAvailableBusBasedOnRouteAndDateReturn" returnType="rtns:ArrayOf_tns2_BusRouteTimingsSoap" returnItemType="tns2:BusRouteTimingsSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="brId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="date" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.services.com" xmlns:rtns="urn:http.service.services.com" xmlns:tns2="http://model.services.com" name="getBusBasedOnRouteAndDate" qname="operNS:getBusBasedOnRouteAndDate" returnQName="getBusBasedOnRouteAndDateReturn" returnType="rtns:ArrayOf_tns2_BusRouteTimingsSoap" returnItemType="tns2:BusRouteTimingsSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="date" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="fromLocation" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="toLocation" type="tns:string"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getAvailableBusBasedOnRouteAndDate getBusBasedOnRouteAndDate" />
+		<parameter name="className" value="com.services.service.http.BusRouteTimingsServiceSoap" />
+		<parameter name="schemaUnqualified" value="http://model.services.com,urn:http.service.services.com" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="BusRouteTimingsServiceSoap" />
+		<parameter name="wsdlServiceElement" value="BusRouteTimingsServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_JPB_BusRouteTimingsService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.services.com" />
+	</service>
+</deployment>

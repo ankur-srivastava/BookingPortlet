@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.services.model.Agency">
+		<field name="agencyId" type="long" />
+		<field name="agencyName" type="String" />
+		<field name="owner" type="String" />
+		<field name="contactNumber" type="String" />
+		<field name="email" type="String" />
+		<field name="active" type="boolean" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.services.model.BookingStatus">
+		<field name="bsId" type="long" />
+		<field name="userId" type="long" />
+		<field name="brtId" type="long" />
+		<field name="status" type="String" />
+		<field name="tripStatus" type="String" />
+		<field name="createDate" type="Date" />
+	</model>
+	<model name="com.services.model.Bus">
+		<field name="busId" type="long" />
+		<field name="busName" type="String" />
+		<field name="agency" type="long" />
+		<field name="driver" type="long" />
+		<field name="conductor" type="long" />
+		<field name="helper" type="long" />
+		<field name="plateNumber" type="String" />
+		<field name="color" type="String" />
+		<field name="make" type="String" />
+		<field name="model" type="String" />
+		<field name="year" type="String" />
+		<field name="active" type="boolean" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.services.model.BusEmployee">
+		<field name="beId" type="long" />
+		<field name="beName" type="String" />
+		<field name="agency" type="long" />
+		<field name="contactNumber" type="String" />
+		<field name="email" type="String" />
+		<field name="licenseNumber" type="String" />
+		<field name="alternateIdNumber" type="String" />
+		<field name="active" type="boolean" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.services.model.BusReservation">
+		<field name="brId" type="long" />
+		<field name="baId" type="long" />
+		<field name="userId" type="long" />
+		<field name="paymentReceived" type="boolean" />
+		<field name="bookingDate" type="Date" />
+	</model>
+	<model name="com.services.model.BusRoute">
+		<field name="brId" type="long" />
+		<field name="busId" type="long" />
+		<field name="startLocation" type="long" />
+		<field name="endLocation" type="long" />
+		<field name="midLocation1" type="long" />
+		<field name="midLocation2" type="long" />
+		<field name="active" type="boolean" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.services.model.BusRouteTimings">
+		<field name="brtId" type="long" />
+		<field name="brId" type="long" />
+		<field name="busDetails" type="String" />
+		<field name="travelDate" type="String" />
+		<field name="travelTime" type="String" />
+		<field name="total" type="long" />
+		<field name="available" type="long" />
+		<field name="price" type="long" />
+		<field name="active" type="boolean" />
+		<field name="completed" type="String" />
+		<field name="createDate" type="Date" />
+	</model>
+	<model name="com.services.model.Coupon">
+		<field name="couponId" type="long" />
+		<field name="couponName" type="String" />
+		<field name="price" type="long" />
+		<field name="validTill" type="Date" />
+		<field name="audience" type="boolean" />
+		<field name="createDate" type="Date" />
+	</model>
+	<model name="com.services.model.Location">
+		<field name="locationId" type="long" />
+		<field name="locationName" type="String" />
+		<field name="streetAddress1" type="String" />
+		<field name="streetAddress2" type="String" />
+		<field name="locationZip" type="String" />
+		<field name="locationCityName" type="String" />
+		<field name="locationStateName" type="String" />
+		<field name="latitude" type="String" />
+		<field name="longitude" type="String" />
+		<field name="comments" type="String" />
+		<field name="active" type="boolean" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.services.model.UserCoupon">
+		<field name="ucId" type="long" />
+		<field name="userId" type="long" />
+		<field name="couponId" type="long" />
+		<field name="claimed" type="boolean" />
+		<field name="createDate" type="Date" />
+	</model>
+</model-hints>

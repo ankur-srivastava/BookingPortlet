@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_JPB_BookingStatusService" provider="java:RPC" style="rpc" use="encoded">
+		<operation xmlns:operNS="urn:http.service.services.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="bookTicket" qname="operNS:bookTicket" returnQName="bookTicketReturn" returnType="rtns:boolean" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="brtId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="bsId" type="tns:long"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="bookTicket" />
+		<parameter name="className" value="com.services.service.http.BookingStatusServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="BookingStatusServiceSoap" />
+		<parameter name="wsdlServiceElement" value="BookingStatusServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_JPB_BookingStatusService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.services.com" />
+	</service>
+</deployment>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+
+<service-builder package-path="com.services">
+	<author>Ankur Srivastava</author>
+	<namespace>JPB</namespace>
+	<entity name="Location" local-service="true" remote-service="false">
+		<column name="locationId" primary="true" type="long"/>
+		<column name="locationName" type="String"/>
+		<column name="streetAddress1" type="String"/>
+		<column name="streetAddress2" type="String"/>
+		<column name="locationZip" type="String"/>
+		<column name="locationCityName" type="String"/>
+		<column name="locationStateName" type="String"/>
+		<column name="latitude" type="String"/>
+		<column name="longitude" type="String"/>
+		<column name="comments" type="String"/>		
+		<column name="active" type="boolean"/>
+
+		<column name="createDate" type="Date"/>
+		<column name="modifiedDate" type="Date"/>
+		
+		<order by="asc">
+			<order-column name="locationName" />
+		</order>
+		<finder name="LocationName" return-type="Collection">
+			<finder-column name="locationName" />
+		</finder>
+		<finder name="LocationCityName" return-type="Collection">
+			<finder-column name="locationCityName" />
+		</finder>
+		<finder name="LocationZip" return-type="Collection">
+			<finder-column name="locationZip" />
+		</finder>
+		<finder name="ActiveLocations" return-type="Collection">
+			<finder-column name="active" />
+		</finder>
+	</entity>
+	
+	<entity name="Bus" local-service="true" remote-service="false">
+		<column name="busId" primary="true" type="long"/>
+		<column name="busName" type="String"/>
+		<column name="agency" type="long"/>
+		<column name="driver" type="long"/>
+		<column name="conductor" type="long"/>
+		<column name="helper" type="long"/>
+		<column name="plateNumber" type="String"/>
+		<column name="color" type="String"/>
+		<column name="make" type="String"/>
+		<column name="model" type="String"/>
+		<column name="year" type="String"/>
+		<column name="active" type="boolean"/>
+
+		<column name="createDate" type="Date"/>
+		<column name="modifiedDate" type="Date"/>
+		
+		<order by="asc">
+			<order-column name="busName" />
+		</order>
+		
+		<finder name="Active" return-type="Collection">
+			<finder-column name="active" />
+		</finder>
+	</entity>
+	
+	<entity name="Agency" local-service="true" remote-service="false">
+		<column name="agencyId" primary="true" type="long"/>
+		<column name="agencyName" type="String"/>
+		<column name="owner" type="String"/>
+		<column name="contactNumber" type="String"/>
+		<column name="email" type="String"/>
+		<column name="active" type="boolean"/>
+
+		<column name="createDate" type="Date"/>
+		<column name="modifiedDate" type="Date"/>
+		
+		<order by="asc">
+			<order-column name="agencyName" />
+		</order>
+		
+		<finder name="Owner" return-type="Collection">
+			<finder-column name="owner" />
+		</finder>
+		<finder name="Active" return-type="Collection">
+			<finder-column name="active" />
+		</finder>
+	</entity>
+	
+	<entity name="BusEmployee" local-service="true" remote-service="false">
+		<column name="beId" primary="true" type="long"/>
+		<column name="beName" type="String"/>
+		<column name="agency" type="long"/>
+		<column name="contactNumber" type="String"/>
+		<column name="email" type="String"/>
+		<column name="licenseNumber" type="String"/>
+		<column name="alternateIdNumber" type="String"/>
+		<column name="active" type="boolean"/>
+
+		<column name="createDate" type="Date"/>
+		<column name="modifiedDate" type="Date"/>
+		
+		<order by="asc">
+			<order-column name="beName" />
+		</order>
+		
+		<finder name="Agency" return-type="Collection">
+			<finder-column name="agency" />
+		</finder>
+		<finder name="Active" return-type="Collection">
+			<finder-column name="active" />
+		</finder>
+	</entity>
+	
+	<entity name="BusRoute" local-service="true" remote-service="false">
+		<column name="brId" primary="true" type="long"/>
+		<column name="busId" type="long"/>
+		<column name="startLocation" type="long"/>
+		<column name="endLocation" type="long"/>
+		<column name="midLocation1" type="long"/>
+		<column name="midLocation2" type="long"/>
+		
+		<column name="active" type="boolean"/>
+
+		<column name="createDate" type="Date"/>
+		<column name="modifiedDate" type="Date"/>
+		
+		<order by="asc">
+			<order-column name="busId" />
+		</order>
+		<finder name="BusId" return-type="Collection">
+			<finder-column name="busId" />
+		</finder>
+		<finder name="StartLocation" return-type="Collection">
+			<finder-column name="startLocation" />
+		</finder>
+		<finder name="EndLocation" return-type="Collection">
+			<finder-column name="endLocation" />
+		</finder>
+		<finder name="StartAndEndLocation" return-type="Collection">
+			<finder-column name="startLocation" />
+			<finder-column name="endLocation" />
+		</finder>
+		<finder name="Active" return-type="Collection">
+			<finder-column name="active" />
+		</finder>
+	</entity>
+	
+	<entity name="BusRouteTimings" local-service="true" remote-service="true">
+		<column name="brtId" primary="true" type="long"/>
+		<column name="brId" type="long"/>
+		<column name="busDetails" type="String"/>
+		<column name="travelDate" type="String"/>
+		<column name="travelTime" type="String"/>
+		<column name="total" type="long"/>
+		<column name="available" type="long"/>
+		<column name="price" type="long"/>
+		<column name="active" type="boolean"/>
+		<column name="completed" type="String"/>
+
+		<column name="createDate" type="Date"/>
+		
+		<order by="asc">
+			<order-column name="travelDate" />
+		</order>
+		<finder name="BrId" return-type="Collection">
+			<finder-column name="brId" />
+		</finder>
+		<finder name="Active" return-type="Collection">
+			<finder-column name="active" />
+		</finder>
+		<finder name="TravelDate" return-type="Collection">
+			<finder-column name="travelDate" />
+		</finder>
+		<finder name="BrIdAndTravelDate" return-type="Collection">
+			<finder-column name="brId" />
+			<finder-column name="travelDate" />
+		</finder>
+	</entity>
+	
+	<entity name="BusReservation" local-service="true" remote-service="false">
+		<column name="brId" primary="true" type="long"/>
+		<column name="baId" type="long"/>
+		<column name="userId" type="long"/>
+		<column name="paymentReceived" type="boolean"/>
+		<column name="bookingDate" type="Date"/>
+
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="BaId" return-type="Collection">
+			<finder-column name="baId" />
+		</finder>
+	</entity>
+	
+	<entity name="Coupon" local-service="true" remote-service="false">
+		<column name="couponId" primary="true" type="long"/>
+		<column name="couponName" type="String"/>
+		<column name="price" type="long"/>
+		<column name="validTill" type="Date"/>
+		<column name="audience" type="boolean"/>
+		<column name="createDate" type="Date"/>
+
+		<finder name="CouponName" return-type="Collection">
+			<finder-column name="couponName" />
+		</finder>
+	</entity>
+	
+	<entity name="UserCoupon" local-service="true" remote-service="false">
+		<column name="ucId" primary="true" type="long"/>
+		<column name="userId" type="long"/>
+		<column name="couponId" type="long"/>
+		<column name="claimed" type="boolean"/>
+		<column name="createDate" type="Date"/>
+
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="UserCouponId" return-type="Collection">
+			<finder-column name="userId" />
+			<finder-column name="couponId" />
+		</finder>
+		<finder name="CouponId" return-type="Collection">
+			<finder-column name="couponId" />
+		</finder>
+		<finder name="ClaimedCoupons" return-type="Collection">
+			<finder-column name="claimed" />
+		</finder>
+	</entity>
+	
+	<entity name="BookingStatus" local-service="true" remote-service="true">
+		<column name="bsId" primary="true" type="long"/>
+		<column name="userId" type="long"/>
+		<column name="brtId" type="long"/>
+		<column name="status" type="String"/>
+		<column name="tripStatus" type="String"/>
+		<column name="createDate" type="Date"/>
+
+		<order by="desc">
+			<order-column name="createDate" />
+		</order>
+
+		<finder name="byUserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="byUserAndStatus" return-type="Collection">
+			<finder-column name="userId" />
+			<finder-column name="status" />
+		</finder>
+		<finder name="byBrtId" return-type="Collection">
+			<finder-column name="brtId" />
+		</finder>
+		<finder name="byTripStatus" return-type="Collection">
+			<finder-column name="tripStatus" />
+		</finder>
+		<finder name="byUserAndTripStatus" return-type="Collection">
+			<finder-column name="userId" />
+			<finder-column name="tripStatus" />
+		</finder>
+		
+
+	</entity>
+</service-builder>
